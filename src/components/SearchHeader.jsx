@@ -22,11 +22,11 @@ export default function SearchHeader() {
   }, [keyword]);
 
   return (
-    <Stack direction={'row'} sx={{alignItems: 'center'}}>
-      <Link to='/'>
+    <Stack direction={'row'} sx={{ alignItems: 'center' }}>
+      <Link to='/' style={{textDecoration: 'none' }}>
         <Stack direction={'row'} spacing={2}>
           <YouTubeIcon color='error' fontSize="large" />
-          <Typography variant="h5" color='error' sx={{fontWeight: 'bold', textDecoration: 'none'}}>Youtube</Typography>
+          <Typography variant="h5" color='error' sx={{fontWeight: 'bold'}}>Youtube</Typography>
         </Stack>
       </Link>
       <Paper
@@ -38,6 +38,11 @@ export default function SearchHeader() {
           placeholder="검색..."
           value={text}
           onChange={e => setText(e.target.value)}
+          onKeyDown={e => {
+            if (e.key === 'Enter') {
+              handleSubmit(e);
+            }
+          }}
         />
         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
         <IconButton type="button" sx={{ p: 1 }} aria-label="search">
