@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@babel/plugin-transform-private-property-in-object": "^7.24.1",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@fontsource/roboto": "^5.0.12",
@@ -16,7 +18,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.3",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "timeago.js": "^4.0.0-beta.3",
     "web-vitals": "^2.1.4"
   },
@@ -27,6 +29,13 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+      "parser": "@babel/eslint-parser",
+      "requireConfigFile": false,
+      "ecmaVersion": 2018,
+      "sourceType": "module"
+    },
     "extends": [
       "react-app",
       "react-app/jest"
